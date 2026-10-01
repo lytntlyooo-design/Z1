@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl" manifest="cache.appcache">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Zone - PS4</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+body{background:#050814;color:#fff;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px}
+.poster{width:800px;max-width:100%;background:radial-gradient(circle at 80% 20%,#0a2540 0%,#02050e 100%);border-radius:12px;padding:40px;box-shadow:0 0 30px rgba(0,162,255,.2);display:grid;grid-template-columns:1fr 1fr;gap:20px;position:relative;overflow:hidden;border:1px solid #1a3a60}
+.poster:before{content:'';position:absolute;top:-50px;right:-50px;width:300px;height:300px;background:rgba(0,162,255,.15);filter:blur(80px);border-radius:50%;pointer-events:none}
+.image-section{display:flex;justify-content:center;align-items:center;position:relative;min-height:360px}
+.image-section img{max-width:100%;height:auto;filter:drop-shadow(0 10px 20px rgba(0,0,0,.8))}
+.content-section{display:flex;flex-direction:column;justify-content:space-between;align-items:center;text-align:center;position:relative;z-index:1}
+.header-logo{border:2px solid #00a2ff;padding:15px 30px;border-radius:8px;box-shadow:0 0 15px rgba(0,162,255,.4),inset 0 0 15px rgba(0,162,255,.2);background:rgba(5,12,30,.6);width:100%}
+.header-logo h1{font-size:28px;font-weight:900;letter-spacing:2px;color:#fff;text-shadow:0 0 10px #00a2ff}
+.header-logo p{font-size:14px;color:#00a2ff;margin-top:5px}
+.ps4-title{display:flex;align-items:center;justify-content:center;gap:15px;margin:20px 0}
+.ps4-title i{font-size:45px;color:#00a2ff;text-shadow:0 0 10px #00a2ff}
+.ps4-title span{font-size:50px;font-weight:bold;letter-spacing:3px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;background:rgba(10,25,50,.5);border:1px solid #00a2ff;border-radius:10px;padding:15px 10px;box-shadow:0 0 10px rgba(0,162,255,.2)}
+.service-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.service-item i{font-size:24px;color:#fff}
+.service-item p{font-size:12px;line-height:1.4}
+.highlight{color:#00a2ff;font-weight:bold}
+.footer{grid-column:span 2;display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:15px;border-top:1px solid rgba(0,162,255,.3);position:relative;z-index:1}
+.footer-brand{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:bold;color:#fff;text-shadow:0 0 8px #00a2ff}
+.phone-number{display:flex;align-items:center;gap:10px;font-size:20px;direction:ltr;font-weight:bold}
+.phone-number i{color:#25D366;font-size:24px}
+.platforms{display:flex;gap:15px;font-size:20px;color:#aaa}
+.platforms div{display:flex;flex-direction:column;align-items:center;font-size:10px}
+.platforms div i{font-size:18px;color:#fff;margin-bottom:2px}
+.launch-btn{grid-column:span 2;display:block;text-align:center;text-decoration:none;color:#fff;background:rgba(0,162,255,.12);border:1px solid #00a2ff;border-radius:8px;padding:12px;font-weight:700;box-shadow:0 0 12px rgba(0,162,255,.18);transition:.2s}
+.launch-btn:hover{background:rgba(0,162,255,.25);box-shadow:0 0 20px rgba(0,162,255,.35)}
+.status{grid-column:span 2;position:relative;z-index:1;border:1px solid #00a2ff;border-radius:10px;padding:16px;text-align:center;background:rgba(10,25,50,.5);box-shadow:0 0 10px rgba(0,162,255,.2)}
+.status-title{font-size:20px;font-weight:800;color:#fff;text-shadow:0 0 8px #00a2ff}
+.status-sub{font-size:13px;color:#aaa;margin-top:6px}
+.status-btn{display:inline-block;margin-top:12px;color:#fff;text-decoration:none;border:1px solid #00a2ff;border-radius:7px;padding:9px 18px;background:rgba(0,162,255,.12)}
+#warn{grid-column:span 2;position:relative;z-index:1;text-align:center;color:#ffcf5a;font-size:12px;font-weight:700}
+#spin{grid-column:span 2;margin:auto;width:32px;height:32px;border:3px solid rgba(0,162,255,.2);border-top-color:#00a2ff;border-radius:50%;animation:spin 1s linear infinite;position:relative;z-index:1}
+#msg{grid-column:span 2;text-align:center;color:#aaa;font-size:13px;position:relative;z-index:1}
+body.done #spin{display:none} body.done #msg{color:#69e0a0} body.fail #spin{display:none} body.fail #msg{color:#ff7777}
+body.log #spin{display:none}
+#wrap{grid-column:span 2;position:relative;z-index:1}
+#state,#out{font-size:12px;color:#aaa;text-align:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:700px){
+body{padding:10px}.poster{grid-template-columns:1fr;padding:24px}.image-section{min-height:260px}.footer,.status,#warn,#spin,#msg,#wrap,.launch-btn{grid-column:span 1}.footer{gap:14px;flex-wrap:wrap;justify-content:center}.ps4-title span{font-size:40px}.services-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="image-section">
+    <img src="https://gmedia.playstation.com/is/image/SIEPDC/ps4-pro-product-thumbnail-01-en-14sep21?$facebook$" alt="PS4 Pro Console">
+  </div>
+  <div class="content-section">
+    <div class="header-logo"><h1>TECH ZONE</h1><p>كل ما يخص الألعاب والتقنية</p></div>
+    <div class="ps4-title"><i class="fa-brands fa-playstation"></i><span>PS4</span></div>
+    <div class="services-grid">
+      <div class="service-item"><i class="fa-solid fa-download"></i><p>أحدث الألعاب<br>بأعلى جودة</p></div>
+      <div class="service-item"><i class="fa-solid fa-wrench"></i><p>تعديل<br>على البلايستيشن</p></div>
+      <div class="service-item"><i class="fa-solid fa-gamepad"></i><p>متوفر تنزيل<br>ألعاب<br><span class="highlight">PS4</span></p></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-brand"><span>TECH ZONE</span></div>
+    <div class="phone-number"><i class="fa-brands fa-whatsapp"></i><span>0921720500</span></div>
+    <div class="platforms"><div><i class="fa-brands fa-playstation"></i></div><div><i class="fa-brands fa-xbox"></i><span>XBOX</span></div><div><i class="fa-solid fa-desktop"></i><span>PC</span></div></div>
+  </div>
+  <a href="jb.html" class="launch-btn">تشغيل الخدمة</a>
+</div>
+<div id="state"></div><div id="det"></div><div id="cache"></div>
+<script>
+(function(){
+var stateEl=document.getElementById("state"),detEl=document.getElementById("det"),cacheEl=document.getElementById("cache");
+function setState(t,c){stateEl.textContent=t;stateEl.className=c||""}
+function setCache(t,ok){cacheEl.textContent=t;cacheEl.className=ok?"cacheok":""}
+var params=new URLSearchParams(location.search),key=null,fwnum=null;
+var m=/PlayStation\s+4[\/ ](\d+)\.(\d+)/.exec(navigator.userAgent);
+if(m){var ms=parseInt(m[2],16).toString(16);if(ms.length<2)ms="0"+ms;key=m[1]+"."+ms;fwnum=parseInt(m[1],10)*100+parseInt(ms,10)}
+var forced=params.get("force")==="1",supported=forced||(fwnum!==null&&({1302:1,1304:1,1350:1,1352:1})[fwnum]===1);
+detEl.innerHTML="firmware <b>"+(key||"unknown")+"</b>"+(supported?" · <b>supported</b>":" · not in this build's kernel table");
+var target="jb.html"+location.search;function go(){setState("loading jailbreak...","warn");location.replace(target)}
+function waitForTap(msg,action){setState(msg,"warn");function fire(){removeEventListener("click",fire);removeEventListener("keydown",fire);action()}addEventListener("click",fire);addEventListener("keydown",fire)}
+if(!supported){setState("UNSUPPORTED FIRMWARE","bad");waitForTap("UNSUPPORTED ("+(key||"unknown")+") -- press X or tap to run anyway",go);return}
+var ac=window.applicationCache;
+if(!ac||!document.documentElement.hasAttribute("manifest"))go();
+else if(!navigator.onLine){setCache("offline -- from cache",true);go()}
+else if(ac.status===ac.IDLE){setCache("cached",true);go()}
+else if(ac.status===ac.UPDATEREADY){try{ac.swapCache()}catch(e){}setCache("update downloaded",true);waitForTap("UPDATE READY -- press X or tap to reload & run",function(){location.reload()})}
+else{setCache("checking cache...");ac.addEventListener("downloading",function(){setCache("caching for offline (first run)...")},false);ac.addEventListener("progress",function(e){if(e&&e.total)setCache("caching "+Math.round(e.loaded/e.total*100)+"%")},false);ac.addEventListener("cached",function(){setCache("cached for offline use",true);waitForTap("CACHED (first run) -- press X or tap to run",go)},false);ac.addEventListener("updateready",function(){try{ac.swapCache()}catch(e){}setCache("update downloaded",true);waitForTap("UPDATE READY -- press X or tap to reload & run",function(){location.reload()})},false);ac.addEventListener("noupdate",function(){setCache("cached -- offline ready",true);go()},false);ac.addEventListener("error",function(){setCache("cache unavailable");waitForTap("CACHE FAILED -- press X or tap to run anyway",go)},false);ac.addEventListener("obsolete",function(){setCache("cache obsolete");waitForTap("CACHE OBSOLETE -- press X or tap to run",go)},false)}
+})();
+</script>
+<style>#state,#det,#cache{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);text-align:center;font-size:12px;z-index:999}#state{bottom:30px;font-size:16px}#det,#cache{display:none}.warn{color:#d8c07f}.bad{color:#d08a7f}.cacheok{color:#7fd0a0}</style>
+</body></html>
